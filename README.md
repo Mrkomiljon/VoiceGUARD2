@@ -35,9 +35,10 @@ The dataset is derived from the **LibriSeVoc** corpus, which includes real human
 - Dataset includes **13,201 samples** per class, ensuring balance.
 
 ## File Structure
-* ├── data_preparation.py # Combine raw audio into a CSV dataset 
-* ├── preprocess_dataset.py # Resample, pad, and preprocess audio 
-* ├── train.py # Fine-tune Wav2Vec2 on the dataset 
+* ├── prepare_data.py # Combine raw audio into a CSV dataset 
+* ├── process_audio.py # Resample, pad, and preprocess audio
+* ├── prepare_hf_dataset.py # Convert to HuggingFace Dataset format
+* ├── fine-tune.py # Fine-tune Wav2Vec2 on the dataset 
 * ├── inference.py # Perform inference on unseen audio 
 * ├── app.py # FastAPI app for real-time classification 
 * ├── README.md # Documentation
@@ -46,8 +47,8 @@ The dataset is derived from the **LibriSeVoc** corpus, which includes real human
 
 ### **Step 1: Clone Repository**
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+https://github.com/Mrkomiljon/VoiceGUARD2.git
+cd VoiceGUARD2
 ```
 ### **Step 2: Install Dependencies**
 ```bash
