@@ -9,7 +9,7 @@ from io import BytesIO
 from pathlib import Path
 
 # Load model and processor
-model_path = "C:\\Users\\GOOD\\Desktop\\TEST-2024\\transformer\\wav2vec2_finetuned_model"
+model_path = "your_model_path/wav2vec2_finetuned_model"
 model = Wav2Vec2ForSequenceClassification.from_pretrained(model_path, local_files_only=True)
 processor = Wav2Vec2Processor.from_pretrained(model_path, local_files_only=True)
 model.eval()
@@ -22,7 +22,7 @@ model.to(device)
 app = FastAPI()
 
 # Set up templates
-templates = Jinja2Templates(directory="C:\\Users\\GOOD\\Desktop\\TEST-2024\\transformer\\templates")
+templates = Jinja2Templates(directory="your_model_path/templates")
 # define label mapping
 id2label = {
     0: "diffwave",
