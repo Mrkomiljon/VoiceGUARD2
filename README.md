@@ -43,6 +43,10 @@ The dataset is derived from the **LibriSeVoc** corpus, which includes real human
 * ├── app.py # FastAPI app for real-time classification 
 * ├── README.md # Documentation
 
+📚 Acknowledgements
+* [LibriSeVoc](https://drive.google.com/file/d/1NXF9w0YxzVjIAwGm_9Ku7wfLHVbsT7aG/view) Dataset for providing audio samples.
+* PyTorch and Torchaudio for efficient deep learning and audio processing capabilities.
+
   ## Setup Instructions
 
 ### **Step 1: Clone Repository**
@@ -102,7 +106,7 @@ uvicorn app:app --reload
 The model is fine-tuned for 10 epochs with a learning rate of 2e-5.
 Techniques like gradient checkpointing and mixed precision are enabled to improve efficiency.
 ## Inference
-Inference is optimized with ONNX quantization for deployment on edge devices.
+Inference is optimized with ONNX quantization for deployment on edge devices(soon).
 ## Results
 * Validation Accuracy: Achieved 99.8% accuracy on the test set.
 * Robustness: The model generalizes well across synthetic and human voices.
