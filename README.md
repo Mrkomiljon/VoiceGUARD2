@@ -45,7 +45,7 @@ The dataset is derived from the **LibriSeVoc** corpus, which includes real human
 
 📚 Acknowledgements
 * [LibriSeVoc](https://drive.google.com/file/d/1NXF9w0YxzVjIAwGm_9Ku7wfLHVbsT7aG/view) Dataset for providing audio samples.
-* PyTorch and Torchaudio for efficient deep learning and audio processing capabilities.
+* [PyTorch](https://pytorch.org/) and Torchaudio for efficient deep learning and audio processing capabilities.
 * [Download](https://github.com/Mrkomiljon/VoiceGUARD2/releases/download/version.0.0.1/voiceGUARD2.7z) pre-trained model
 
   ## Setup Instructions
