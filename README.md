@@ -58,7 +58,7 @@ pip install -r requirements.txt
 ## Run data_preparation.py to prepare a multi-class dataset:
 
 ```bash
-python data_preparation.py
+python prepare_data.py
 ```
 ## This script combines real and AI-generated audio into a structured CSV file.
 
@@ -66,13 +66,17 @@ python data_preparation.py
 Run preprocess_dataset.py to resample, pad, and preprocess the dataset:
 
 ```bash
-python preprocess_dataset.py
+python process_audio.py
+```
+### Convert to HuggingFace Dataset format
+```bash
+python prepare_hf_dataset.py
 ```
 ### **Step 5: Fine-Tuning**
-Fine-tune the Wav2Vec2 model using train.py:
+Fine-tune the Wav2Vec2 model using fine-tune.py:
 
 ```bash
-python train.py
+python fine-tune.py
 ```
 ### **Step 6: Inference**
 Use inference.py to classify unseen audio:
