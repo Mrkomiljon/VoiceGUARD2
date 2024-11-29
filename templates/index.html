@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Classification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://i0.wp.com/dubawa.org/wp-content/uploads/2023/04/image-71.png?w=1292&ssl=1');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.8); /* Shaffof qora fon */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+            margin-top: 10%;
+        }
+
+        h1 {
+            color: #f9c74f; /* Oltin rang */
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 90%;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            cursor: pointer;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        #refresh {
+            background-color: #dc3545;
+        }
+
+        #refresh:hover {
+            background-color: #c82333;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.1em;
+            color: #f9f9f9;
+            text-align: center; /* Matn va rasm markazlash */
+        }
+
+        .frame-image {
+            max-width: 100%; /* Rasm kengligini natija qismiga moslashtirish */
+            max-height: 200px; /* Maksimal balandlikni belgilash */
+            margin-top: 20px; /* Yuqoridan masofa */
+            border-radius: 10px; /* Rasmning yumaloq burchaklari */
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Soyali effekt */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Real or AI-Generated?</h1>
+        <form id="upload-form">
+            <input type="file" name="file" id="file" accept="audio/*" required />
+            <button type="submit">Classify</button>
+        </form>
+        <div class="result" id="result">
+            <img src="https://i0.wp.com/dubawa.org/wp-content/uploads/2023/04/image-71.png?w=1292&ssl=1" 
+                 alt="Audio Verification Visualization" 
+                 class="frame-image">
+        </div>
+        <button id="refresh">Refresh</button>
+    </div>
+    <script>
+        // Handle file upload and classification
+        document.getElementById('upload-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const fileInput = document.getElementById('file');
+            const resultDiv = document.getElementById('result');
+
+            if (!fileInput.files.length) {
+                resultDiv.textContent = "Please upload an audio file.";
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+
+            try {
+                const response = await fetch('/predict/', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+                if (data.error) {
+                    resultDiv.textContent = `Error: ${data.error}`;
+                } else {
+                    resultDiv.innerHTML = `
+                        <p><strong>Class Name:</strong> ${data.class_name}</p>
+                        <p><strong>Label:</strong> ${data.label}</p>
+                        <p><strong>Confidence:</strong> ${(data.confidence * 100).toFixed(2)}%</p>
+                        <img src="https://i0.wp.com/dubawa.org/wp-content/uploads/2023/04/image-71.png?w=1292&ssl=1" 
+                             alt="Audio Verification Visualization" 
+                             class="frame-image">
+                    `;
+                }
+            } catch (error) {
+                resultDiv.textContent = `Error: ${error.message}`;
+            }
+        });
+
+        // Handle refresh button
+        document.getElementById('refresh').addEventListener('click', () => {
+            document.getElementById('file').value = '';
+            document.getElementById('result').innerHTML = '';
+        });
+    </script>
+</body>
+</html>
