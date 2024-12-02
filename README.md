@@ -24,6 +24,7 @@ This project provides an end-to-end solution for classifying audio into **human*
 ## DEMO
 ![ezgif com-animated-gif-maker (2)](https://github.com/user-attachments/assets/d807785b-1a14-4d6e-88be-9f3c8a4b9b93)
 
+If you find this project helpful or inspiring, please consider giving it a star 🌟 on GitHub! Your support motivates us to keep improving and sharing our work with the community. 😊
 
 ## Dataset
 
@@ -124,7 +125,7 @@ Inference is optimized with ONNX quantization for deployment on edge devices(soo
 - Implement real-time streaming support for API.
 ## 📜 License
 This project is licensed under the MIT License.
-If you find this project helpful or inspiring, please consider giving it a star 🌟 on GitHub! Your support motivates us to keep improving and sharing our work with the community. 😊
+
 
 
 
