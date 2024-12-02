@@ -121,6 +121,7 @@ Inference is optimized with ONNX quantization for deployment on edge devices(soo
 - Implement real-time streaming support for API.
 ## 📜 License
 This project is licensed under the MIT License.
+If you find this project helpful or inspiring, please consider giving it a star 🌟 on GitHub! Your support motivates us to keep improving and sharing our work with the community. 😊
 
 
 
