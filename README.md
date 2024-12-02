@@ -103,7 +103,8 @@ python inference.py --audio_file path_to_audio.wav
 ```bash
 uvicorn app:app --reload
 ```
-## Access the API at http://127.0.0.1:8000/predict.
+## Access the API at http://127.0.0.1:8000/docs
+![ezgif com-animated-gif-maker (3)](https://github.com/user-attachments/assets/23273135-6319-4d60-8b6e-7c1df84ccc87)
 
 # Technical Details
 ## Model
