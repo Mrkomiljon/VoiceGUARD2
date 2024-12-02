@@ -21,6 +21,9 @@ This project provides an end-to-end solution for classifying audio into **human*
 - **Multi-Class Audio Classification**: Supports detection of human voices and six AI-generated classes (DiffWave, WaveNet, etc.).
 - **Optimized for Performance**: Includes techniques like attention masks, quantization, and ONNX conversion for efficiency.
 - **Deployment-Ready**: Real-time audio classification using FastAPI.
+## DEMO
+![ezgif com-animated-gif-maker (2)](https://github.com/user-attachments/assets/d807785b-1a14-4d6e-88be-9f3c8a4b9b93)
+
 
 ## Dataset
 
